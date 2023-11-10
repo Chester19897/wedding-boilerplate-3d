@@ -1,0 +1,53 @@
+---
+import Icon from './Icon.astro';
+---
+
+<div class="gallery">
+	<h2>Captured Moments</h2>
+	<div class="container">
+		<div class="p-5 sm:p-8">
+			<div class="columns-1 gap-5 sm:columns-2 sm:gap-8 md:columns-3 lg:columns-4 [&>img:not(:first-child)]:mt-8">
+							<img src="/assets/gallery/wedding-1.jpg" loading="lazy" alt="wedding-1" class="rounded-lg">
+							<img src="/assets/gallery/wedding-2.jpg" loading="lazy" alt="wedding-2" class="rounded-lg">
+							<img src="/assets/gallery/wedding-3.jpg" loading="lazy" alt="wedding-3" class="rounded-lg">
+							<img src="/assets/gallery/wedding-4.jpg" loading="lazy" alt="wedding-4" class="rounded-lg">
+							<img src="/assets/gallery/wedding-5.jpg" loading="lazy" alt="wedding-5" class="rounded-lg">
+							<img src="/assets/gallery/wedding-6.jpg" loading="lazy" alt="wedding-6" class="rounded-lg">
+							<img src="/assets/gallery/wedding-7.jpg" loading="lazy" alt="wedding-7" class="rounded-lg">
+							<img src="/assets/gallery/wedding-8.jpg" loading="lazy" alt="wedding-8" class="rounded-lg">
+							<img src="/assets/gallery/wedding-9.jpg" loading="lazy" alt="wedding-9" class="rounded-lg">
+							<img src="/assets/gallery/wedding-10.jpg" loading="lazy" alt="wedding-10" class="rounded-lg">
+							<img src="/assets/gallery/wedding-11.jpg" loading="lazy" alt="wedding-11" class="rounded-lg">
+							<img src="/assets/gallery/wedding-12.jpg" loading="lazy" alt="wedding-12" class="rounded-lg">
+							<img src="/assets/gallery/wedding-13.jpg" loading="lazy" alt="wedding-13" class="rounded-lg">
+							<img src="/assets/gallery/wedding-14.jpg" loading="lazy" alt="wedding-14" class="rounded-lg">
+
+
+			</div>
+		</div>
+	</div>
+</div>
+
+<style>
+
+
+	h2 {
+		font-size: var(--text-xl);
+		text-align: center;
+		max-width: 15ch;
+	}
+
+	@media (min-width: 50em) {
+		aside {
+			padding: 7.5rem;
+			flex-direction: row;
+			flex-wrap: wrap;
+			justify-content: space-between;
+		}
+
+		h2 {
+			font-size: var(--text-3xl);
+			text-align: left;
+		}
+	}
+</style>

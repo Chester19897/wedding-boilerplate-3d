@@ -4,7 +4,8 @@
 
 // Component Imports
 import MainHead from '../components/MainHead.astro';
-
+import Nav from '../components/Nav';
+import Footer from '../components/Footer.astro';
 
 interface Props {
 	title?: string | undefined;
@@ -19,12 +20,12 @@ const { title, description } = Astro.props;
 		<MainHead title={title} description={description} />
 	</head>
 	<body>
-			<div class="loader">
-			<svg width="48" height="48" fill="none" xmlns="http://www.w3.org/2000/svg"><mask id="a" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="9" y="3" width="32" height="42"><path d="M25 44a15 15 0 1 0 0-30 15 15 0 0 0 0 30Z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="m18 8 3-4h8l3 4-7 6-7-6Z" fill="#555" stroke="#fff" stroke-linecap="round" stroke-linejoin="round"/></mask><g mask="url(#a)"><path d="M0 0h48v48H0V0Z" fill="#52322B"/></g></svg>
-			<p>Loading... Please wait</p>
-			<div class="progress"></div>
+		<div class="stack backgrounds">
+			<!--<Nav />-->
+			<slot />
+			<Footer />
 		</div>
-		<slot />
+
 		<script>
 			// Add “loaded” class once the document has completely loaded.
 			addEventListener('load', () => document.documentElement.classList.add('loaded'));
@@ -37,9 +38,5 @@ const { title, description } = Astro.props;
 				background: #ffffff;
 			}
 		</style>
-
-<script src="../scripts/three3d.ts"></script>
 	</body>
 </html>
-
-

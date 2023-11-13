@@ -1,408 +1,681 @@
 ---
-import { getCollection } from 'astro:content';
-
+import { getCollection } from 'astro:content'
 
 // Layout import — provides basic page elements: <head>, <nav>, <footer> etc.
-import BaseLayout from '../layouts/BaseLayout.astro';
+import BaseLayout from '../layouts/BaseLayout.astro'
 
 // Component Imports
-import CallToAction from '../components/CallToAction.astro';
-import TabContent from '../components/TabContent.astro';
-import Hero from '../components/Hero.astro';
-import Icon from '../components/Icon.astro';
-import PortfolioPreview from '../components/PortfolioPreview.astro';
+import CallToAction from '../components/CallToAction.astro'
+import TabContent from '../components/TabContent.astro'
+import Hero from '../components/Hero.astro'
+import Icon from '../components/Icon.astro'
+import PortfolioPreview from '../components/PortfolioPreview.astro'
 
 // Page section components
-import Skills from '../components/Skills.astro';
+import Skills from '../components/Skills.astro'
 import CountdownTimer from '../components/timer/CountdownTimer'
 import Form from '../components/form/Form'
-import Tabs from "../components/Tabs.astro";
-import Gallery from "../components/Gallery.astro";
+import Tabs from '../components/Tabs.astro'
+import Gallery from '../components/Gallery.astro'
 
 // Content Fetching: List four most recent work projects
 const stories = (await getCollection('story'))
-	.sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf())
-	.slice(0, 4);
+  .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf())
+  .slice(0, 4)
 
 // Full Astro Component Syntax:
 // https://docs.astro.build/core-concepts/astro-components/
 
 const FUTURE_DAY = new Date('1/1/2024 12:00:00').getTime()
 
-const dateTimeAfterThreeDays = FUTURE_DAY;
-
+const dateTimeAfterThreeDays = FUTURE_DAY
 ---
 
-
-
 <BaseLayout>
-	<div class="stack gap-20 lg:gap-48">
-		<div class="wrapper stack gap-20 lg:gap-20">
-			<header class="hero">
-				<div class="static-hero-inner">
-					<div class="shaped-1">
-						<picture>
-							<source srcset="/assets/shaped-top.webp"/>
-							<img src="/assets/shaped-top.webp" alt="shaped-1" width="414" height="103"/>
-						</picture>
-					</div>
-					<Hero
-						title="Daniel & Jessica"
-						tagline="WE ARE GETTING MARRIED JUL 8, 2022"
-						align="start"
-					>
-						<CountdownTimer client:only="react" targetDate={dateTimeAfterThreeDays} />
-					</Hero>
-					<div class="shaped-2">
-						<picture>
-							<source srcset="/assets/shaped-bottom.webp"/>
-							<img src="/assets/shaped-bottom.webp" alt="shaped-2" width="414" height="103"/>
-						</picture>
-					</div>
-				</div>
+  <div class="stack gap-20 lg:gap-48">
+    <div id="fullpage">
+      <div class="section active" id="section0">
+        <div class="wrapper stack gap-20 lg:gap-20">
+          <header class="hero">
+            <div class="static-hero-inner">
+              <div class="shaped-1">
+                <picture>
+                  <source srcset="/assets/shaped-top.webp" />
+                  <img
+                    src="/assets/shaped-top.webp"
+                    alt="shaped-1"
+                    width="414"
+                    height="103"
+                  />
+                </picture>
+              </div>
+              <Hero
+                title="Daniel & Jessica"
+                tagline="WE ARE GETTING MARRIED JUL 8, 2022"
+                align="start"
+              >
+                <CountdownTimer
+                  client:only="react"
+                  targetDate={dateTimeAfterThreeDays}
+                />
+              </Hero>
+              <div class="shaped-2">
+                <picture>
+                  <source srcset="/assets/shaped-bottom.webp" />
+                  <img
+                    src="/assets/shaped-bottom.webp"
+                    alt="shaped-2"
+                    width="414"
+                    height="103"
+                  />
+                </picture>
+              </div>
+            </div>
 
-				<div class="static-hero--rignt animate-fade-left animate-once animate-ease-linear animate-normal">
-					<div class="static-hero--img bg-[#fff] p-7 shadow-[0_0_6.1px_3.9px_rgba(28,31,86,.06)] rounded-[320px] max-w-[640px]">
-					<div class="box-border">
-						<picture>
-							<source srcset="/assets/wedding.webp" type="image/webp">
-							<img
-								alt="Jeanine White smiling in a red plaid shirt and tortoise shell glasses"
-								width="600"
-								height="900"
-								class="rounded-[300px]"
-								src="/assets/wedding.webp"
-							/>
-						</picture>
-					</div>
-					<div class="static-hero-shaped--1">
-						<picture>
-							<source srcset="/assets/shaped-1.webp,
-							" type="image/webp" media="(min-width:50em)">
-							<source srcset="/assets/shaped-1_1x.webp" media="(max-width:480px)" type="image/webp">
-							<img
-								alt="bg"
-								width="535"
-								height="545"
-								src="/assets/shaped-1.webp"
-							/>
-						</picture>
-					</div>
-					<div class="static-hero-shaped--2">
-						<picture>
-							<source srcset="/assets/shaped-2.webp,
-							" type="image/webp">
-							<img
-								alt="bg"
-								width="310"
-								height="510"
-								src="/assets/shaped-2.webp"
-							/>
-						</picture>
-					</div>
-				</div>
+            <div
+              class="static-hero--rignt animate-fade-left animate-once animate-ease-linear animate-normal"
+            >
+              <div
+                class="static-hero--img bg-[#fff] p-7 shadow-[0_0_6.1px_3.9px_rgba(28,31,86,.06)] rounded-[320px] max-w-[640px]"
+              >
+                <div class="box-border">
+                  <picture>
+                    <source srcset="/assets/wedding.webp" type="image/webp" />
+                    <img
+                      alt="Jeanine White smiling in a red plaid shirt and tortoise shell glasses"
+                      width="600"
+                      height="900"
+                      class="rounded-[300px]"
+                      src="/assets/wedding.webp"
+                    />
+                  </picture>
+                </div>
+                <div class="static-hero-shaped--1">
+                  <picture>
+                    <source
+                      srcset="/assets/shaped-1.webp,
+								"
+                      type="image/webp"
+                      media="(min-width:50em)"
+                    />
+                    <source
+                      srcset="/assets/shaped-1_1x.webp"
+                      media="(max-width:480px)"
+                      type="image/webp"
+                    />
+                    <img
+                      alt="bg"
+                      width="535"
+                      height="545"
+                      src="/assets/shaped-1.webp"
+                    />
+                  </picture>
+                </div>
+                <div class="static-hero-shaped--2">
+                  <picture>
+                    <source srcset="/assets/shaped-2.webp,
+								" type="image/webp" />
+                    <img
+                      alt="bg"
+                      width="310"
+                      height="510"
+                      src="/assets/shaped-2.webp"
+                    />
+                  </picture>
+                </div>
+              </div>
+            </div>
+          </header>
+        </div>
+      </div>
+      <div class="section" id="section1">
+        <Skills />
+      </div>
+      <div class="section" id="section2">
+        <section class="wrapper section-tabs container xl:mx-4 px-4">
+          <section class="with-background">
+            <header>
+              <h3 class="text-center mb-14 xl:text-[42px]">Our love story</h3>
+            </header>
 
-				</div>
-			</header>
-
-		</div>
-		<Skills />
-
-		<section class="wrapper section-tabs container xl:mx-4 px-4">
-			<section class="with-background">
-				<header>
-					<h3 class="text-center mb-14 xl:text-[42px]">Our love story</h3>
-				</header>
-
-				<div class="tab-area">
-					<div class="tab-links">
-						<Tabs>
-						<li class="nav-item">
-							<a class="service-thumb nav-link " href="#">
-								First Meet
-							</a>
-						</li>
-						<li class="nav-item">
-							<a  class="service-thumb nav-link" href="#">
-								First Date
-							</a>
-						</li>
-						<li class="nav-item">
-							<a class="service-thumb nav-link" href="#">
-								Marige Proposal
-							</a>
-						</li>
-						<li class="nav-item">
-							<a class="service-thumb nav-link" href="#">
-								Our Engagement
-							</a>
-						</li>
-					</Tabs>
-					</div>
-					<TabContent>
-						{
-							stories.map((story, i) =>
-								<PortfolioPreview project={story} id={i} />
-							)
-						}
-					</TabContent>
-				</div>
-			</section>
-
-		</section>
-			<section class="wrapper section-form">
-
-				<div class="form-attending">
-					<Form client:visible />
-				</div>
-			</section>
-		<section class="wrapper gallery">
-			<Gallery />
-		</section>
-
-	</div>
+            <div class="tab-area">
+              <div class="tab-links">
+                <Tabs>
+                  <li class="nav-item">
+                    <a class="service-thumb nav-link" href="#"> First Meet</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="service-thumb nav-link" href="#"> First Date</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="service-thumb nav-link" href="#">
+                      Marige Proposal</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a class="service-thumb nav-link" href="#">
+                      Our Engagement</a
+                    >
+                  </li>
+                </Tabs>
+              </div>
+              <TabContent>
+                {
+                  stories.map((story, i) => (
+                    <PortfolioPreview project={story} id={i} />
+                  ))
+                }
+              </TabContent>
+            </div>
+          </section>
+        </section>
+      </div>
+      <div class="section" id="section3">
+        <!-- <section class="wrapper gallery">
+          <Gallery />
+        </section> -->
+      </div>
+      <div class="section" id="section4">
+        <section class="wrapper section-form">
+          <div class="form-attending">
+            <Form client:visible />
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
 </BaseLayout>
 
 <script>
-	const navLink = document.querySelectorAll(".service-thumb.nav-link")
-	const tabs = document.querySelectorAll(".tab-pane .card")
+  const navLink = document.querySelectorAll('.service-thumb.nav-link')
+  const tabs = document.querySelectorAll('.tab-pane .card')
 
-	navLink.forEach((linkTab, i) => {
-		linkTab.addEventListener("click", () => {
-			navLink.forEach((link) => {
-				link.classList.remove("active")
-			})
-			tabs.forEach((tab) => {
-				tab.classList.remove("active")
-			})
-			tabs[i].classList.add("active")
-			linkTab.classList.add("active")
-		})
-	})
-
-
+  navLink.forEach((linkTab, i) => {
+    linkTab.addEventListener('click', () => {
+      navLink.forEach((link) => {
+        link.classList.remove('active')
+      })
+      tabs.forEach((tab) => {
+        tab.classList.remove('active')
+      })
+      tabs[i].classList.add('active')
+      linkTab.classList.add('active')
+    })
+  })
 </script>
 
 <style>
-	.hero {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		gap: 2rem;
-	}
+  .hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
 
-	.roles {
-		display: none;
-	}
+  .roles {
+    display: none;
+  }
 
-	.hero img {
-		background: #fff;
-	}
+  .hero img {
+    background: #fff;
+  }
 
+  @media (min-width: 50em) {
+    .hero {
+      display: grid;
+      grid-template-columns: 6fr 4fr;
+      padding-inline: 2.5rem;
+      gap: 3.75rem;
+      height: 900px;
+    }
 
+    .roles {
+      margin-top: 0.5rem;
+      display: flex;
+      gap: 0.5rem;
+    }
+    .shaped-1 {
+      padding-bottom: 60px;
+    }
 
-	@media (min-width: 50em) {
-		.hero {
-			display: grid;
-			grid-template-columns: 6fr 4fr;
-			padding-inline: 2.5rem;
-			gap: 3.75rem;
-			height: 900px;
-		}
+    .shaped-2 {
+      padding-top: 80px;
+    }
+  }
 
-		.roles {
-			margin-top: 0.5rem;
-			display: flex;
-			gap: 0.5rem;
-		}
-		.shaped-1 {
-		padding-bottom: 60px
-		}
+  /* ====================================================== */
 
-		.shaped-2 {
-			padding-top: 80px
-		}
-	}
+  .section {
+    display: grid;
+    gap: 2rem;
+  }
 
+  .with-background {
+    position: relative;
+  }
 
-	/* ====================================================== */
+  .with-background::before {
+    --hero-bg: var(--bg-image-subtle-2);
 
-	.section {
-		display: grid;
-		gap: 2rem;
-	}
+    content: '';
+    position: absolute;
+    pointer-events: none;
+    left: 50%;
+    width: 100vw;
+    aspect-ratio: calc(2.25 / var(--bg-scale));
+    top: 0;
+    transform: translateY(-75%) translateX(-50%);
+    background:
+      url('/assets/backgrounds/noise.png') top center/220px repeat,
+      var(--hero-bg) center center / var(--bg-gradient-size) no-repeat,
+      var(--gray-999);
+    background-blend-mode: overlay, normal, normal, normal;
+    mix-blend-mode: var(--bg-blend-mode);
+    z-index: -1;
+  }
 
-	.with-background {
-		position: relative;
-	}
+  .with-background.bg-variant::before {
+    --hero-bg: var(--bg-image-subtle-1);
+  }
 
-	.with-background::before {
-		--hero-bg: var(--bg-image-subtle-2);
+  .section-header {
+    justify-self: center;
+    text-align: center;
+    max-width: 50ch;
+    font-size: var(--text-md);
+    color: var(--gray-300);
+  }
 
-		content: '';
-		position: absolute;
-		pointer-events: none;
-		left: 50%;
-		width: 100vw;
-		aspect-ratio: calc(2.25 / var(--bg-scale));
-		top: 0;
-		transform: translateY(-75%) translateX(-50%);
-		background:
-			url('/assets/backgrounds/noise.png') top center/220px repeat,
-			var(--hero-bg) center center / var(--bg-gradient-size) no-repeat,
-			var(--gray-999);
-		background-blend-mode: overlay, normal, normal, normal;
-		mix-blend-mode: var(--bg-blend-mode);
-		z-index: -1;
-	}
+  .section-header h3 {
+    font-size: var(--text-2xl);
+  }
 
-	.with-background.bg-variant::before {
-		--hero-bg: var(--bg-image-subtle-1);
-	}
+  .nav-item .nav-link.active {
+    color: #a3888c;
+  }
 
-	.section-header {
-		justify-self: center;
-		text-align: center;
-		max-width: 50ch;
-		font-size: var(--text-md);
-		color: var(--gray-300);
-	}
+  .nav-item .nav-link {
+    display: block;
+    border: 0;
+    color: #585858;
+    cursor: pointer;
+  }
 
-	.section-header h3 {
-		font-size: var(--text-2xl);
-	}
+  .static-hero--img {
+    position: relative;
+  }
 
-	.nav-item .nav-link.active{
-		color: #a3888c
-	}
-
-	.nav-item .nav-link {
-		display: block;
-			border: 0;
-			color: #585858;
-			cursor: pointer;
-		}
-
-	.static-hero--img {
-		position: relative;
-	}
-
-	.static-hero-shaped--1 {
-		position: absolute;
+  .static-hero-shaped--1 {
+    position: absolute;
     left: -100px;
     bottom: -111px;
     z-index: -1;
-	}
+  }
 
-	.static-hero-shaped--2 {
-		position: absolute;
+  .static-hero-shaped--2 {
+    position: absolute;
     right: -200px;
     top: -40px;
     z-index: -1;
-	}
+  }
 
+  @media (max-width: 650px) {
+    .static-hero-shaped--2 {
+      right: -140px;
+      top: -31px;
+      transform: rotate(0deg);
+    }
 
-	@media (max-width: 650px) {
-		.static-hero-shaped--2 {
-			right: -140px;
-    		top: -31px;
-			transform: rotate(0deg);
-		}
+    .static-hero-shaped--1 img {
+      width: 100%;
+    }
+    .static-hero-shaped--2 img {
+      width: 60%;
+    }
+    .nav-item .nav-link {
+      font-size: 17px;
+      padding: 10px 15px;
+    }
+  }
 
-		.static-hero-shaped--1 img {
-			width: 100%;
-		}
-		.static-hero-shaped--2 img {
-			width: 60%;
-		}
-		.nav-item .nav-link {
-			font-size: 17px;
-			padding: 10px 15px;
-		}
-	}
+  @media (max-width: 480px) {
+    .static-hero--img {
+      max-width: 300px;
+      margin: 0 auto;
+    }
+    .static-hero-shaped--1 {
+      left: -45px;
+      bottom: -79px;
+    }
 
-	@media (max-width: 480px){
-		.static-hero--img {
-			max-width: 300px;
-			margin: 0 auto;
-		}
-		.static-hero-shaped--1 {
-			left: -45px;
-    		bottom: -79px;
-		}
+    .static-hero-shaped--2 {
+      right: -254px;
+      top: -32px;
+    }
+  }
 
-		.static-hero-shaped--2 {
-			right: -254px;
-    		top: -32px;
-		}
-	}
+  /* @media (min-width: 50em) {
+    .section {
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-areas: 'header header header header' 'gallery gallery gallery gallery';
+      gap: 5rem;
+    }
 
+    .section.with-cta {
+      grid-template-areas: 'header header header cta' 'gallery gallery gallery gallery';
+    }
 
+    .section-header {
+      grid-area: header;
+      font-size: var(--text-lg);
+    }
 
-	@media (min-width: 50em) {
-		.section {
-			grid-template-columns: repeat(4, 1fr);
-			grid-template-areas: 'header header header header' 'gallery gallery gallery gallery';
-			gap: 5rem;
-		}
+    .section-header h3 {
+      font-size: var(--text-4xl);
+    }
 
-		.section.with-cta {
-			grid-template-areas: 'header header header cta' 'gallery gallery gallery gallery';
-		}
+    .with-cta .section-header {
+      justify-self: flex-start;
+      text-align: left;
+    }
 
-		.section-header {
-			grid-area: header;
-			font-size: var(--text-lg);
-		}
+    .gallery {
+      grid-area: gallery;
+    }
 
-		.section-header h3 {
-			font-size: var(--text-4xl);
-		}
+    .cta {
+      grid-area: cta;
+    }
+    .static-hero--rignt {
+      width: 500px;
+      height: 640px;
+    }
+    .nav-item .nav-link {
+      border: 0;
+      font-size: 22px;
+      color: #585858;
+      padding: 10px 30px;
+      cursor: pointer;
+    }
+  } */
 
-		.with-cta .section-header {
-			justify-self: flex-start;
-			text-align: left;
-		}
+  /* ====================================================== */
 
-		.gallery {
-			grid-area: gallery;
-		}
+  .mention-card {
+    display: flex;
+    height: 7rem;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: 1px solid var(--gray-800);
+    border-radius: 1.5rem;
+    color: var(--gray-300);
+    background: var(--gradient-subtle);
+    box-shadow: var(--shadow-sm);
+  }
 
-		.cta {
-			grid-area: cta;
-		}
-		.static-hero--rignt {
-			width: 500px;
-			height: 640px;
-		}
-		.nav-item .nav-link {
-			border: 0;
-			font-size: 22px;
-			color: #585858;
-			padding: 10px 30px;
-			cursor: pointer;
-		}
-	}
+  @media (min-width: 50em) {
+    .mention-card {
+      border-radius: 1.5rem;
+      height: 9.5rem;
+    }
+  }
+  @charset "ISO-8859-1";
+  /* Reset CSS
+ * --------------------------------------- */
 
-	/* ====================================================== */
+  .wrap {
+    margin-left: auto;
+    margin-right: auto;
+    width: 960px;
+    position: relative;
+  }
+  .intro p {
+    width: 50%;
+    margin: 0 auto;
+    font-size: 1.5em;
+  }
+  .section {
+    text-align: center;
+  }
+  #menu li {
+    display: inline-block;
+    margin: 10px;
+    color: #000;
+    background: #fff;
+    background: rgba(255, 255, 255, 0.5);
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+  }
+  #menu li.active {
+    background: #666;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+  }
+  #menu li a {
+    text-decoration: none;
+    color: #000;
+  }
+  #menu li.active a:hover {
+    color: #000;
+  }
+  #menu li:hover {
+    background: rgba(255, 255, 255, 0.8);
+  }
+  #menu li a,
+  #menu li.active a {
+    padding: 9px 18px;
+    display: block;
+  }
+  #menu li.active a {
+    color: #fff;
+  }
+  #menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 40px;
+    z-index: 70;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+  .twitter-share-button {
+    position: fixed !important;
+    z-index: 99;
+    right: 149px;
+    top: 9px;
+  }
+  #infoMenu {
+    height: 20px;
+    color: #f2f2f2;
+    position: fixed;
+    z-index: 70;
+    bottom: 0;
+    width: 100%;
+    text-align: right;
+    font-size: 0.9em;
+    padding: 8px 0 8px 0;
+  }
+  #infoMenu ul {
+    padding: 0 40px;
+  }
+  #infoMenu li a {
+    display: block;
+    margin: 0 22px 0 0;
+    color: #333;
+  }
+  #infoMenu li a:hover {
+    text-decoration: underline;
+  }
+  #infoMenu li {
+    display: inline-block;
+    position: relative;
+  }
+  #examplesList {
+    display: none;
+    background: #282828;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    padding: 20px;
+    float: left;
+    position: absolute;
+    bottom: 29px;
+    right: 0;
+    width: 822px;
+    text-align: left;
+  }
+  #examplesList ul {
+    padding: 0;
+  }
+  #examplesList ul li {
+    display: block;
+    margin: 5px 0;
+  }
+  #examplesList ul li a {
+    color: #bdbdbd;
+    margin: 0;
+  }
+  #examplesList ul li a:hover {
+    color: #f2f2f2;
+  }
+  #examplesList .column {
+    float: left;
+    margin: 0 20px 0 0;
+  }
+  #examplesList h3 {
+    color: #f2f2f2;
+    font-size: 1.2em;
+    margin: 0 0 15px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+    -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1);
+    -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1);
+    padding: 0 0 5px 0;
+  }
 
-	.mention-card {
-		display: flex;
-		height: 7rem;
-		justify-content: center;
-		align-items: center;
-		text-align: center;
-		border: 1px solid var(--gray-800);
-		border-radius: 1.5rem;
-		color: var(--gray-300);
-		background: var(--gradient-subtle);
-		box-shadow: var(--shadow-sm);
-	}
+  /* Demos Menu
+ * --------------------------------------- */
+  #demosMenu {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 999;
+    padding: 5px 10px;
+  }
 
-	@media (min-width: 50em) {
-		.mention-card {
-			border-radius: 1.5rem;
-			height: 9.5rem;
-		}
-	}
+  /* Buttons
+ * --------------------------------------- */
+  #download a {
+    text-decoration: none;
+  }
+  #download,
+  #download:hover {
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  }
+  .button {
+    margin: 20px 0 0 0;
+    vertical-align: middle;
+    display: inline-block;
+  }
+
+  .button a {
+    color: #fff;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 15px 30px;
+    border-radius: 5px;
+    display: inline-block;
+  }
+
+  .button a:hover {
+    color: #316f68;
+    background-color: #fff;
+  }
+
+  /* Extensions preview menu
+ * --------------------------------------- */
+  .preview-extensions-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 99;
+    border-top: 0;
+    box-shadow: 1px 0px 3px rgba(0, 0, 0, 0.8);
+  }
+  .preview-extensions-menu li {
+    display: inline-block;
+    margin: 0;
+  }
+  .preview-extensions-menu li a {
+    padding: 15px 25px;
+    display: block;
+  }
+  .preview-buy-extension {
+    background: #3cc63c;
+  }
+  .preview-more-extensions {
+    background: #fff;
+  }
+  .preview-buy-extension a {
+    color: #fff;
+  }
+  .preview-buy-extension:hover {
+    background-color: #1a961a;
+  }
+  .preview-more-extensions a {
+    color: #333;
+  }
+
+  .code {
+    background: rgba(255, 255, 255, 0.7);
+    padding: 0px 5px;
+    line-height: 25px;
+  }
+
+  /* Style for our header texts
+* --------------------------------------- */
+
+  .section p,
+  .intro p {
+    color: #fff;
+  }
+
+  /* Centered texts in each section
+* --------------------------------------- */
+  .section {
+    text-align: center;
+  }
+
+  /* Bottom menu
+* --------------------------------------- */
+  #infoMenu li a {
+    color: #fff;
+  }
+
+  /* Sections backgrounds
+* --------------------------------------- */
+  #section0 {
+    background-image: unset !important;
+    background-color: unset !important;
+  }
+
+  #section1 {
+    background-image: unset !important;
+    background-color: unset !important;
+  }
+
+  #section2 {
+    background-image: unset !important;
+    background-color: unset !important;
+  }
+
+  #section3 {
+    background-image: unset !important;
+    background-color: unset !important;
+  }
+  #section4 {
+    background-image: unset !important;
+    background-color: unset !important;
+  }
 </style>

@@ -2,42 +2,57 @@
 // Learn about using Astro layouts:
 // https://docs.astro.build/en/core-concepts/layouts/
 
-
 // Component Imports
-import MainHead from '../components/MainHead.astro';
-import Nav from '../components/Nav';
-import Footer from '../components/Footer.astro';
+import MainHead from '../components/MainHead.astro'
+import Nav from '../components/Nav'
+import Footer from '../components/Footer.astro'
 
 interface Props {
-	title?: string | undefined;
-	description?: string | undefined;
+  title?: string | undefined
+  description?: string | undefined
 }
 
-const { title, description } = Astro.props;
+const { title, description } = Astro.props
 ---
 
 <html lang="en">
-	<head>
-		<MainHead title={title} description={description} />
-	</head>
-	<body>
-		<div class="stack backgrounds">
-			<!--<Nav />-->
-			<slot />
-			<Footer />
-		</div>
+  <head>
+    <MainHead title={title} description={description} />
+    <!-- <link rel="stylesheet" type="text/css" href="/public/fullpage.css" /> -->
+    <link rel="stylesheet" type="text/css" href="/src/dist/fullpage.css" />
+  </head>
+  <body>
+    <div class="stack backgrounds">
+      <!--<Nav />-->
+      <slot />
+      <!-- <Footer /> -->
+    </div>
+    <script type="text/javascript" src="/src/dist/fullpage.js"></script>
+    <script type="text/javascript">
+      var myFullpage = new fullpage('#fullpage', {
+        // sectionsColor: [
+        //   '#f2f2f2',
+        //   '#4BBFC3',
+        //   '#7BAABE',
+        //   'whitesmoke',
+        //   '#ccddff',
+        //   '#7BAABE'
+        // ]
+      })
+    </script>
+    <script>
+      // Add “loaded” class once the document has completely loaded.
+      addEventListener('load', () =>
+        document.documentElement.classList.add('loaded')
+      )
+    </script>
 
-		<script>
-			// Add “loaded” class once the document has completely loaded.
-			addEventListener('load', () => document.documentElement.classList.add('loaded'));
-		</script>
-
-		<style>
-			.backgrounds {
-				min-height: 100%;
-				isolation: isolate;
-				background: #ffffff;
-			}
-		</style>
-	</body>
+    <style>
+      .backgrounds {
+        min-height: 100%;
+        isolation: isolate;
+        background: #ffffff;
+      }
+    </style>
+  </body>
 </html>

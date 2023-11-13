@@ -114,7 +114,9 @@
 	--shadow-lg: 0px 62px 25px rgba(255, 255, 255, 0.01), 0px 35px 21px rgba(255, 255, 255, 0.05),
 		0px 16px 16px rgba(255, 255, 255, 0.1), 0px 4px 9px rgba(255, 255, 255, 0.12);
 }
-
+:global(html) {
+	scroll-behavior: smooth;
+}
 html,
 body {
 	height: 100%;
@@ -151,7 +153,6 @@ h3,
 h4,
 h5 {
 	line-height: 1.1;
-	font-family: var(--font-brand);
 	font-weight: 600;
 	color: var(--gray-100);
 }

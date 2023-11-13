@@ -1,6 +1,7 @@
 import Wishes from './Wishes.tsx'
-import { useState } from 'react'
-import { data } from '../../../public/data/data.ts'
+import React, { type ChangeEvent, type FormEvent, useState } from 'react'
+import data from './data.ts'
+import { Button } from 'flowbite-react'
 
 const SlideWishes = () => {
   const [values, setValues] = useState({
@@ -8,34 +9,26 @@ const SlideWishes = () => {
     message: ''
   })
 
-  const handleChange = (event) => {
-    const { name, value } = event.target
+  const handleChange = (
+    e: ChangeEvent<HTMLInputElement & HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target
     setValues((prevFormData) => ({
       ...prevFormData,
       [name]: value
     }))
   }
 
-  const handleFormSubmit = (newData) => {
-    data.push(newData)
-  }
-
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
-    const formData = {
-      id: data.length,
-      name: e.target.name.value,
-      message: e.target.message.value
-    }
-
-    handleFormSubmit(formData)
+    data.push({ ...values, id: data?.length > 0 ? data?.length + 1 : 0 })
     setValues({ name: '', message: '' })
   }
 
   return (
     <div className="wish">
-      <div className="container m-auto flex flex-col-reverse lg:grid lg:grid-cols-[1fr_1fr] gap-10 items-center">
+      <div className="container m-auto flex flex-col-reverse lg:grid lg:grid-cols-[1.5fr_1fr] gap-10 items-center">
         <div className="bg-[url('assets/bg-8.jpg')] bg-cover bg-center w-full">
           <div className="rounded-lg w-full">
             <div className="max-h-[350px] md:max-h-[650px] w-full">
@@ -58,8 +51,8 @@ const SlideWishes = () => {
               <input
                 type="text"
                 name="name"
+                className="rounded"
                 value={values.name}
-                className="input rounded w-full"
                 placeholder="Tên của bạn..."
                 onChange={handleChange}
                 required
@@ -67,17 +60,14 @@ const SlideWishes = () => {
               <textarea
                 name="message"
                 value={values.message}
+                className="rounded"
                 rows={4}
-                className="textarea rounded resize-none"
                 placeholder="Viết lời chúc của bạn tại đây..."
                 onChange={handleChange}
-              ></textarea>
-              <button
-                type="submit"
-                className="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-              >
+              />
+              <Button type="submit" outline gradientDuoTone="purpleToPink">
                 Gửi lời chúc
-              </button>
+              </Button>
             </form>
           </div>
         </div>

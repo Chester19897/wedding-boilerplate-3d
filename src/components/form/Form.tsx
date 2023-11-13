@@ -107,13 +107,13 @@ const Form = () => {
           <div className="hidden md:block md:absolute md:left-[-30%] md:bottom-[-10%] md:z-[-1]">
             <picture>
               <source srcSet="/assets/vector-2.webp" type="image/webp" />
-              <img src="/assets/vector-2.webp" />
+              <img src="/src/assets/vector-2.webp" />
             </picture>
           </div>
           <div className="hidden md:block md:absolute md:right-[-26%] md:top-[-3%] md:z-[-1]">
             <picture>
               <source srcSet="/assets/vector-1.webp" type="image/webp" />
-              <img src="/assets/vector-1.webp" />
+              <img src="/src/assets/vector-1.webp" />
             </picture>
           </div>
         </div>

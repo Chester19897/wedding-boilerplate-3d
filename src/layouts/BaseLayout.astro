@@ -2,18 +2,17 @@
 // Learn about using Astro layouts:
 // https://docs.astro.build/en/core-concepts/layouts/
 
-
 // Component Imports
-import MainHead from '../components/MainHead.astro';
-import Nav from '../components/Nav';
-import Footer from '../components/Footer.astro';
+import MainHead from '../components/MainHead.astro'
+import Nav from '../components/Nav'
+import Footer from '../components/Footer.astro'
 
 interface Props {
-	title?: string | undefined;
-	description?: string | undefined;
+  title?: string | undefined
+  description?: string | undefined
 }
 
-const { title, description } = Astro.props;
+const { title, description } = Astro.props
 ---
 
 <html lang="en">
@@ -21,6 +20,14 @@ const { title, description } = Astro.props;
     <MainHead title={title} description={description} />
     <!-- <link rel="stylesheet" type="text/css" href="/public/fullpage.css" /> -->
     <link rel="stylesheet" type="text/css" href="/src/fullpage/fullpage.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Italianno"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Kurale"
+    />
   </head>
   <body>
     <div class="stack backgrounds">
@@ -48,12 +55,17 @@ const { title, description } = Astro.props;
       )
     </script>
 
-		<style>
-			.backgrounds {
-				min-height: 100%;
-				isolation: isolate;
-				background: #ffffff;
-			}
-		</style>
-	</body>
+    <style>
+      .backgrounds {
+        min-height: 100%;
+        isolation: isolate;
+        background: #ffffff;
+      }
+      body {
+        font-family: 'Kurale', sans-serif !important;
+        font-size: 25px;
+        font-weight: 300;
+      }
+    </style>
+  </body>
 </html>

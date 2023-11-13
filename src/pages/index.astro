@@ -17,6 +17,7 @@ import CountdownTimer from '../components/timer/CountdownTimer'
 import Form from '../components/form/Form'
 import Tabs from '../components/Tabs.astro'
 import Gallery from '../components/Gallery.astro'
+import SlideWishes from '../components/wishes/SlideWishes'
 
 // Content Fetching: List four most recent work projects
 const stories = (await getCollection('story'))
@@ -170,16 +171,21 @@ const dateTimeAfterThreeDays = FUTURE_DAY
           </section>
         </section>
       </div>
-      <div class="section" id="section3">
-        <!-- <section class="wrapper gallery">
-          <Gallery />
-        </section> -->
-      </div>
+      <!--<div class="section" id="section3">-->
+      <!--   <section class="wrapper gallery">-->
+      <!--    <Gallery />-->
+      <!--  </section>-->
+      <!--</div>-->
       <div class="section" id="section4">
         <section class="wrapper section-form">
           <div class="form-attending">
             <Form client:visible />
           </div>
+        </section>
+      </div>
+      <div class="section" id="section5">
+        <section class="wrapper section-form">
+          <SlideWishes client:only="react" />
         </section>
       </div>
     </div>

@@ -43,6 +43,7 @@
     ]
   },
   "devDependencies": {
+    "@types/jquery": "^3.5.27",
     "@types/node": "^16.11.19",
     "@types/three": "^0.139.0",
     "@types/webgi": "https://storage.googleapis.com/dist.pixotronics.com/webgi/runtime/bundle-types-0.4.6.tgz",

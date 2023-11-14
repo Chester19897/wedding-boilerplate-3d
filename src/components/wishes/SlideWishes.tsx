@@ -38,7 +38,7 @@ const SlideWishes = () => {
         <div className="md:p-7 md:shadow-md">
           <div className="p-5 md:px-10 md:py-12 backdrop-blur-lg bg-white/30 md:border border-[#F3ECE9] md:rounded">
             <div className="flex flex-col justify-center items-center gap-3 px-5 mb-10">
-              <h2 className="text-2xl md:text-3xl uppercase text-center text-[#3f3f46]">
+              <h2 className="text-2xl md:text-3xl uppercase text-center text-[#837a7a]">
                 Gửi lời chúc
               </h2>
               <p className="md:text-lg text-zinc-500 text-center mt-2">
@@ -66,7 +66,7 @@ const SlideWishes = () => {
               />
               <button
                 type="submit"
-                className="rounded text-[#3f3f46] border-2 border-solid border-[#3f3f46] bg-transparent hover:bg-[#3f3f46] hover:text-white hover:transition"
+                className="rounded text-[#fff] border-2 border-solid  bg-transparent hover:bg-[#837a7ac9] hover:text-white hover:transition bg-[#837a7a] text-lg h-10 rounded-lg"
               >
                 Gửi lời chúc
               </button>

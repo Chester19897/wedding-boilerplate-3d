@@ -37,7 +37,7 @@ const dateTimeAfterThreeDays = FUTURE_DAY
 <BaseLayout>
   <div class="stack gap-20 lg:gap-48">
     <div id="fullpage" class="fullpage">
-      <div class="section active" id="section0">
+      <div class="section active" id="section0" data-anchor="section0">
         <div class="wrapper container">
           <section class="hero">
             <div class="static-hero-inner">
@@ -131,10 +131,10 @@ const dateTimeAfterThreeDays = FUTURE_DAY
           </section>
         </div>
       </div>
-      <div class="section py-10 md:py-20 mt-5 scroll-mt-20" id="section1">
+      <div class="section" id="section1" data-anchor="section1">
         <Skills />
       </div>
-      <div class="section py-10 md:py-20 scroll-m-20" id="section2">
+      <div class="section" id="section2" data-anchor="section2">
         <section class="wrapper section-tabs container xl:mx-4 px-4">
           <section class="with-background">
             <header class="flex flex-col justify-center items-center">
@@ -250,20 +250,23 @@ const dateTimeAfterThreeDays = FUTURE_DAY
           </section>
         </section>
       </div>
-      <div class="section" id="section3">
-        <section class="wrapper gallery">
-          <!-- <Gallery /> -->
-          <Slide />
-        </section>
+      <div class="section" id="section3" data-anchor="section3">
+        <!-- <section class="wrapper gallery"> -->
+        <!-- <Gallery /> -->
+        <!-- </section> -->
       </div>
-      <div class="section" id="section4">
+      <div class="section" id="section4" data-anchor="section4">
         <section class="wrapper section-form">
           <div class="form-attending">
             <Form client:visible />
           </div>
         </section>
       </div>
-      <div class="section h-full scroll-m-20" id="section5">
+      <div
+        class="section h-full scroll-m-20"
+        id="section5"
+        data-anchor="section5"
+      >
         <section class="slide">
           <SlideWishes client:only="react" />
         </section>
@@ -271,6 +274,7 @@ const dateTimeAfterThreeDays = FUTURE_DAY
       <div
         class="section grid place-content-center bg-cover bg-center md:min-h-[500px] w-full relative"
         id="section6"
+        data-anchor="section6"
       >
         <div class="h-full bg-white/10 z-2"></div>
         <Image
@@ -289,7 +293,7 @@ const dateTimeAfterThreeDays = FUTURE_DAY
             Cảm ơn!
           </h3>
           <p
-            class="text-3xl md:text-[50px] text-black font-bold text-center drop-shadow"
+            class="text-3xl md:text-[50px] text-[#963636] font-bold text-center drop-shadow seeyou"
           >
             Hẹn gặp lại bạn ở lễ cuới!
           </p>
@@ -297,32 +301,38 @@ const dateTimeAfterThreeDays = FUTURE_DAY
       </div>
     </div>
   </div>
+  <a id="button"></a>
 </BaseLayout>
 
-<script is:inline>
-  const navLink = document.querySelectorAll('.service-thumb.nav-link')
-  const tabs = document.querySelectorAll('.tab-pane .card')
+<script type="text/javascript">
+  $(document).ready(function () {
+    const navLink = document.querySelectorAll('.service-thumb.nav-link')
+    const tabs = document.querySelectorAll('.tab-pane .card')
 
-  var sreenSize = $(window).width()
-  if (sreenSize < 530) {
-    $('#fullpage').css('overflow', 'auto')
-  }
+    var sreenSize = $(window).width()
+    if (sreenSize < 530) {
+      $('#fullpage').css('overflow', 'auto')
+    }
 
-  navLink.forEach((linkTab, i) => {
-    linkTab.addEventListener('click', () => {
-      navLink.forEach((link) => {
-        link.classList.remove('active')
+    navLink.forEach((linkTab, i) => {
+      linkTab.addEventListener('click', () => {
+        navLink.forEach((link) => {
+          link.classList.remove('active')
+        })
+        tabs.forEach((tab) => {
+          tab.classList.remove('active')
+        })
+        tabs[i].classList.add('active')
+        linkTab.classList.add('active')
       })
-      tabs.forEach((tab) => {
-        tab.classList.remove('active')
-      })
-      tabs[i].classList.add('active')
-      linkTab.classList.add('active')
     })
   })
 </script>
 
 <style>
+  .seeyou {
+    color: #963636 !important;
+  }
   .hero {
     display: flex;
     flex-direction: column;
@@ -794,10 +804,10 @@ const dateTimeAfterThreeDays = FUTURE_DAY
     background-color: unset !important;
   }
   #section4 {
-    /* background-image: url('/public/assets/bgLast.jpg'); */
+    background-image: url('/public/assets/wd2.jpg');
     background-repeat: no-repeat;
     background-size: cover;
-
+    z-index: -10;
     background-color: unset !important;
   }
   h1,

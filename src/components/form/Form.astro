@@ -35,10 +35,14 @@
              Lễ Thành Hôn
           </p>
           <br />
-          <p class="flex justify-center align-middle mt-2">Hoàng Việt</p>
+          <p class="flex justify-center align-middle mt-1 name-user">
+            Hoàng Việt & Bích Ngọc
+          </p>
 
-          <p class="flex justify-center align-middle">and</p>
-          <p class="flex justify-center align-middle mb-2">Bích Ngọc</p>
+          <!-- <p class="flex justify-center align-middle">and</p>
+          <p class="flex justify-center align-middle mb-2 name-user">
+            Bích Ngọc
+          </p> -->
           <br />
           <p class="flex justify-center align-middle">
             Bữa cơm thân mật sẽ diễn ra vào lúc 10h00, Thứ Bảy
@@ -62,12 +66,17 @@
           <h3 class="text-3xl text-[#837A7A]">Xác nhận tham gia</h3>
         </div>
         <div>
+          <input
+            class="block w-full mb-5 border-b border-solid border-[#cde0ef] bg-transparent text-[#787878] pl-0 text-xl rounded-0 h-10"
+            placeholder="Họ tên"
+            id="nameInput"
+          />
           <p id="hoten" class="text-xl h-10"></p>
         </div>
         <div class="form-input">
           <input
             class="block w-full mb-5 border-b border-solid border-[#cde0ef] bg-transparent text-[#787878] pl-0 text-xl rounded-0 h-10"
-            placeholder="Your Phone Number"
+            placeholder="Số điện thoại"
             id="phone"
           />
         </div>
@@ -75,8 +84,7 @@
           <label
             for="countries"
             class="block mb-2 text-sm font-medium text-left text-gray-900 dark:text-white text-[#787272] pl-0 text-xl rounded-0"
-          >
-            Địa điểm tổ chức cưới
+            >Địa điểm tổ chức cưới
           </label>
           <select
             class="block w-[200px] mb-5 b text-[#787878] pl-0 text-xl rounded-0 border-none focus:border-none pt-0"
@@ -99,7 +107,7 @@
         class="hidden md:block md:absolute md:left-[-30%] md:bottom-[-10%] md:z-[-1]"
       >
         <picture>
-          <source srcSet="/assets/vector-2.webp" type="image/webp" />
+          <source srcset="/assets/vector-2.webp" type="image/webp" />
           <img src="/src/assets/vector-2.webp" />
         </picture>
       </div>
@@ -107,16 +115,31 @@
         class="hidden md:block md:absolute md:right-[-26%] md:top-[-3%] md:z-[-1]"
       >
         <picture>
-          <source srcSet="/assets/vector-1.webp" type="image/webp" />
+          <source srcset="/assets/vector-1.webp" type="image/webp" />
           <img src="/src/assets/vector-1.webp" />
         </picture>
       </div>
     </div>
   </div>
 </div>
+<style>
+  .name-user {
+    font-family: 'Italianno', sans-serif !important;
+    font-size: 40px !important;
+    font-weight: 400;
+    color: #837a7a !important;
+  }
+</style>
 <script is:inline src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
 <script is:inline>
   var arrId = window.location.search.split('=')
+  if (arrId.length === 1 || arrId[1] === '') {
+    $('#hoten').hide()
+    $('#nameInput').show()
+  } else {
+    $('#hoten').show()
+    $('#nameInput').hide()
+  }
   async function fetchData() {
     var name = ''
     const response = await fetch(
@@ -154,12 +177,12 @@
     name = data.data.customersCollection?.edges[0]?.node?.name
     $('#hoten').html(data.data.customersCollection?.edges[0]?.node?.name)
   }
-  console.log('name')
 
   const ressult = fetchData()
 
   $('#buttonsubmit').on('click', async () => {
     try {
+      const hotenValue = $('#hoten').html()
       const data = await fetch(
         'https://htpliweeuekelvokcjwp.supabase.co/graphql/v1',
         {
@@ -203,6 +226,7 @@
               location: $('#location').val(),
               isAttendance: true,
               phone: $('#phone').val(),
+              name: hotenValue !== '' ? hotenValue : $('#nameInput').val(),
               wish: ''
             }
           })

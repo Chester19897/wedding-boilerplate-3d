@@ -4,9 +4,8 @@
 
 // Component Imports
 import MainHead from '../components/MainHead.astro'
-import Nav from '../components/Nav'
+import Nav from '../components/Nav.astro'
 import Footer from '../components/Footer.astro'
-
 
 interface Props {
   title?: string | undefined
@@ -17,7 +16,6 @@ const { title, description } = Astro.props
 ---
 
 <html lang="en" class="scroll-smooth">
-
   <head>
     <MainHead title={title} description={description} />
     <link rel="stylesheet" type="text/css" href="/src/fullpage/fullpage.css" />
@@ -27,7 +25,7 @@ const { title, description } = Astro.props
     />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Kurale"
+      href="https://fonts.googleapis.com/css?family=Lora"
     />
     <link
       rel="stylesheet"
@@ -39,7 +37,7 @@ const { title, description } = Astro.props
     <div class="backgrounds">
       <Nav />
       <slot />
-       <!--<Footer />-->
+      <!--<Footer />-->
     </div>
     <script
       type="text/javascript"
@@ -57,6 +55,15 @@ const { title, description } = Astro.props
         //   '#ccddff',
         //   '#7BAABE'
         // ]
+        anchors: [
+          'section0',
+          'section1',
+          'section2',
+          'section3',
+          'section4',
+          'section5',
+          'section6'
+        ]
       })
     </script>
     <script>
@@ -73,7 +80,7 @@ const { title, description } = Astro.props
         background: #ffffff;
       }
       body {
-        font-family: 'Kurale', sans-serif !important;
+        font-family: 'Lora', sans-serif !important;
         font-size: 25px;
         font-weight: 300;
         background: transparent;

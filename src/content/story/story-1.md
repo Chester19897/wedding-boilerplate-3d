@@ -1,11 +1,10 @@
 ---
-title: Lần đầu chúng ta gặp nhau
+title: Lần đầu gặp gỡ
 publishDate: 2019-12-01 00:00:00
 img: /assets/story-1.jpg
 img_alt: A bright pink sheet of paper used to wrap flowers curves in front of rich blue background
 description: |
-  We paired with a cutting-edge music API and a team of horticulturalists
-  to build AI-generated playlists that maximize houseplant health.
+  Lần đầu gặp gỡ,  Lần đầu gặp gỡ,  Lần đầu gặp gỡ
 tags:
   - Dev
   - Branding

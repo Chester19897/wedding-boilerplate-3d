@@ -36,7 +36,7 @@ const NavMenu = () => {
               <ul className="flex justify-end">
                 <li className="px-5">
                   <a
-                    href="/"
+                    href="#section0"
                     className="block cursor-pointer text-[16px] font-[500] px-2.5 py-8 text-[#3f3f46]"
                   >
                     Home

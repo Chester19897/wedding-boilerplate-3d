@@ -34,11 +34,11 @@ const dateTimeAfterThreeDays = FUTURE_DAY
 ---
 
 <BaseLayout>
-    <div id="full-page">
   <div class="stack gap-20 lg:gap-48">
+    <div id="full-page">
       <div class="section active" id="section0">
-        <div class="wrapper stack gap-20 lg:gap-20">
-          <header class="hero">
+        <div class="wrapper container">
+          <section class="hero">
             <div class="static-hero-inner">
               <div class="shaped-1">
                 <picture>
@@ -53,7 +53,7 @@ const dateTimeAfterThreeDays = FUTURE_DAY
               </div>
               <Hero
                 title="Hoàng Việt & Bích Ngọc"
-                tagline="WE ARE GETTING MARRIED JUL 8, 2022"
+                tagline="Lễ cưới được tổ chức vào ngày 1 tháng 1, 2024"
                 align="start"
               >
                 <CountdownTimer
@@ -127,36 +127,38 @@ const dateTimeAfterThreeDays = FUTURE_DAY
                 </div>
               </div>
             </div>
-          </header>
+          </section>
         </div>
       </div>
-      <div class="section" id="section1">
+      <div class="section py-10 md:py-20 mt-5 scroll-mt-20" id="section1">
         <Skills />
       </div>
-      <div class="section" id="section2">
+      <div class="section py-10 md:py-20 scroll-m-20" id="section2">
         <section class="wrapper section-tabs container xl:mx-4 px-4">
           <section class="with-background">
             <header>
-              <h3 class="text-center mb-14 xl:text-[42px]">Our love story</h3>
+                <h3 class="text-center mb-14 xl:text-[42px]" >Câu chuyện tình yêu</h3>
             </header>
 
             <div class="tab-area">
               <div class="tab-links">
                 <Tabs>
                   <li class="nav-item">
-                    <a class="service-thumb nav-link" href="#"> First Meet</a>
+                    <a class="service-thumb nav-link" href="#">Lần đầu găp gỡ</a>
                   </li>
                   <li class="nav-item">
-                    <a class="service-thumb nav-link" href="#"> First Date</a>
+                    <a class="service-thumb nav-link" href="#">Buổi hẹn đầu tiên</a>
                   </li>
                   <li class="nav-item">
                     <a class="service-thumb nav-link" href="#">
-                      Marige Proposal</a
+                      Cầu hôn
+                    </a
                     >
                   </li>
                   <li class="nav-item">
                     <a class="service-thumb nav-link" href="#">
-                      Our Engagement</a
+                      Đám cưới
+                    </a
                     >
                   </li>
                 </Tabs>
@@ -172,19 +174,19 @@ const dateTimeAfterThreeDays = FUTURE_DAY
           </section>
         </section>
       </div>
-      <div class="section" id="section3">
+      <div class="section py-10 md:py-20 scroll-m-20" id="section3">
          <section class="wrapper gallery">
           <Gallery />
         </section>
       </div>
-      <div class="section" id="section4">
+      <div class="section py-10 md:py-20 scroll-m-20" id="section4">
         <section class="wrapper section-form">
           <div class="form-attending">
             <Form client:visible />
           </div>
         </section>
       </div>
-      <div class="section" id="section5">
+      <div class="section py-10 md:py-20 scroll-m-20" id="section5">
         <section class="wrapper slide">
           <SlideWishes client:only="react" />
         </section>

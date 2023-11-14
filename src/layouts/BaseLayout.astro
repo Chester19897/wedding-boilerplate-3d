@@ -36,7 +36,13 @@ const { title, description } = Astro.props
       <slot />
        <Footer />
     </div>
-    <script is:inline src="/src/fullpage/fullpage.js"></script>
+
+    <script type="text/javascript" src="https://unpkg.com/aos@2.3.1/dist/aos.js"
+    ></script>
+    <script type="text/javascript">
+      AOS.init();
+    </script>
+    <script src="/src/fullpage/fullpage.js"></script>
     <script>
       var myFullpage = new fullpage('#fullpage', {
         // sectionsColor: [
@@ -50,13 +56,6 @@ const { title, description } = Astro.props
       })
 
     </script>
-    <script>
-      // Add “loaded” class once the document has completely loaded.
-      addEventListener('load', () =>
-        document.documentElement.classList.add('loaded')
-      )
-    </script>
-
     <style>
       .backgrounds {
         min-height: 100%;

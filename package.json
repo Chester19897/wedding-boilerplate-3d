@@ -41,9 +41,11 @@
     ]
   },
   "devDependencies": {
+    "@types/aos": "^3.0.7",
     "@types/node": "^16.11.19",
     "@types/three": "^0.139.0",
     "@types/webgi": "https://storage.googleapis.com/dist.pixotronics.com/webgi/runtime/bundle-types-0.4.6.tgz",
+    "aos": "^2.3.4",
     "prettier": "^3.0.3",
     "prettier-plugin-astro": "^0.12.1",
     "react-hook-form": "^7.48.2",

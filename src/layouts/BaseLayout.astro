@@ -6,6 +6,8 @@
 import MainHead from '../components/MainHead.astro'
 import Nav from '../components/Nav'
 import Footer from '../components/Footer.astro'
+import AOS from 'aos';
+import 'aos/dist/aos.css'
 
 interface Props {
   title?: string | undefined
@@ -37,6 +39,9 @@ const { title, description } = Astro.props
     </div>
     <script is:inline src="/src/fullpage/fullpage.js"></script>
     <script>
+       AOS.init();
+    </script>
+    <script>
       var myFullpage = new fullpage('#fullpage', {
         // sectionsColor: [
         //   '#f2f2f2',
@@ -47,6 +52,7 @@ const { title, description } = Astro.props
         //   '#7BAABE'
         // ]
       })
+
     </script>
     <script>
       // Add “loaded” class once the document has completely loaded.

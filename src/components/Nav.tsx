@@ -8,7 +8,7 @@ const NavMenu = () => {
           <section className="grid grid-cols-12 w-full">
             <section className="col-span-3 flex items-center">
               <h1>
-                <a className="flex items-center justify-center gap-1 text-3xl">
+                <a className="logo flex items-center justify-center gap-1 text-3xl text-[#3f3f46]">
                   Việt
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -37,41 +37,41 @@ const NavMenu = () => {
                 <li className="px-5">
                   <a
                     href="/"
-                    className="block cursor-pointer text-[16px] font-[500] px-2.5 py-8"
+                    className="block cursor-pointer text-[16px] font-[500] px-2.5 py-8 text-[#3f3f46]"
                   >
                     Home
                   </a>
                 </li>
                 <li className="px-5">
                   <a
-                    href="/"
-                    className="block cursor-pointer text-[16px] font-[500] px-2.5 py-8"
+                    href="#section1"
+                    className="block cursor-pointer text-[16px] font-[500] px-2.5 py-8 text-[#3f3f46]"
                   >
                     Couple
                   </a>
                 </li>
                 <li className="px-5">
                   <a
-                    href="/"
-                    className="block cursor-pointer text-[16px] font-[500] px-2.5 py-8"
+                    href="#section2"
+                    className="block cursor-pointer text-[16px] font-[500] px-2.5 py-8 text-[#3f3f46]"
                   >
                     Story
                   </a>
                 </li>
                 <li className="px-5">
                   <a
-                    href="/"
-                    className="block cursor-pointer text-[16px] font-[500] px-2.5 py-8"
+                    href="#section3"
+                    className="block cursor-pointer text-[16px] font-[500] px-2.5 py-8 text-[#3f3f46]"
                   >
-                    Gallery
+                    Khoảnh khăc
                   </a>
                 </li>
                 <li className="px-5">
                   <a
-                    href="/"
-                    className="block cursor-pointer text-[16px] font-[500] px-2.5 py-8"
+                    href="#section5"
+                    className="block cursor-pointer text-[16px] font-[500] px-2.5 py-8 text-[#3f3f46]"
                   >
-                    Event
+                    Gửi lời chúc
                   </a>
                 </li>
               </ul>

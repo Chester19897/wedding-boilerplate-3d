@@ -1,7 +1,6 @@
 import Wishes from './Wishes.tsx'
 import React, { type ChangeEvent, type FormEvent, useState } from 'react'
 import data from './data.ts'
-import { Button } from 'flowbite-react'
 
 const SlideWishes = () => {
   const [values, setValues] = useState({
@@ -39,7 +38,7 @@ const SlideWishes = () => {
         <div className="md:p-7 md:shadow-md">
           <div className="p-5 md:px-10 md:py-12 backdrop-blur-lg bg-white/30 md:border border-[#F3ECE9] md:rounded">
             <div className="flex flex-col justify-center items-center gap-3 px-5 mb-10">
-              <h2 className="text-2xl md:text-3xl uppercase text-center">
+              <h2 className="text-2xl md:text-3xl uppercase text-center text-[#3f3f46]">
                 Gửi lời chúc
               </h2>
               <p className="md:text-lg text-zinc-500 text-center mt-2">
@@ -62,12 +61,15 @@ const SlideWishes = () => {
                 value={values.message}
                 className="rounded"
                 rows={4}
-                placeholder="Viết lời chúc của bạn tại đây..."
+                placeholder="Lời chúc..."
                 onChange={handleChange}
               />
-              <Button type="submit" outline gradientDuoTone="purpleToPink">
+              <button
+                type="submit"
+                className="rounded text-[#3f3f46] border-2 border-solid border-[#3f3f46] bg-transparent hover:bg-[#3f3f46] hover:text-white hover:transition"
+              >
                 Gửi lời chúc
-              </Button>
+              </button>
             </form>
           </div>
         </div>

@@ -61,16 +61,14 @@
         <div class="mt-4">
           <h3 class="text-3xl text-[#837A7A]">Xác nhận tham gia</h3>
         </div>
-        <div class="form-input">
-          <input
-            class="block w-full mb-5 bg-transparent text-[#787878] pl-0 text-xl rounded-0 h-10"
-            placeholder="Your Name"
-          />
+        <div>
+          <p id="hoten" class="text-xl h-10"></p>
         </div>
         <div class="form-input">
           <input
             class="block w-full mb-5 border-b border-solid border-[#cde0ef] bg-transparent text-[#787878] pl-0 text-xl rounded-0 h-10"
             placeholder="Your Phone Number"
+            id="phone"
           />
         </div>
         <div class="form-input flex justify-between">
@@ -82,6 +80,7 @@
           </label>
           <select
             class="block w-[200px] mb-5 b text-[#787878] pl-0 text-xl rounded-0 border-none focus:border-none pt-0"
+            id="location"
           >
             <option value="VINHPHUC">VĨNH PHÚC</option>
             <option value="HATINH">HÀ TĨNH</option>
@@ -117,7 +116,9 @@
 </div>
 <script is:inline src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
 <script is:inline>
+  var arrId = window.location.search.split('=')
   async function fetchData() {
+    var name = ''
     const response = await fetch(
       'https://htpliweeuekelvokcjwp.supabase.co/graphql/v1',
       {
@@ -131,28 +132,29 @@
         },
 
         body: JSON.stringify({
-          query: `query getCustomerByName(
-          $name:String
-        ){
-           customerCollection(filter:{name: {eq:$name}}) {
-            edges {
-              node {
-                id
-                isAttendace
-                name
+          query: `query getCustomerById($id:UUID){
+            customersCollection(filter:{id: {eq:$id}}) {
+              edges {
+                node {
+                  id
+                  isAttendace
+                  name
+                }
               }
             }
-          }
-        }`,
+          }`,
           variables: {
-            name: 'dam'
+            id: arrId[1]
           }
         })
       }
     )
-    const blob = await response.json()
-    console.log('bl', blob, window.location.pathname)
+    const data = await response.json()
+
+    name = data.data.customersCollection?.edges[0]?.node?.name
+    $('#hoten').html(data.data.customersCollection?.edges[0]?.node?.name)
   }
+  console.log('name')
 
   const ressult = fetchData()
 
@@ -171,26 +173,59 @@
           },
 
           body: JSON.stringify({
-            query: `query getCustomerByName(
-          $name:String
-        ){
-           customerCollection(filter:{name: {eq:$name}}) {
-            edges {
-              node {
-                id
-                isAttendace
-                name
-              }
-            }
-          }
-        }`,
+            query: `mutation updateOneCustomers(
+                  $id:UUID,
+                  $location:Location,
+                  $isAttendance:Boolean,
+                  $wish:String
+                ){
+                  updatecustomersCollection(
+                    filter:{id: {eq:$id}},
+                    set:{
+                      isAttendace:$isAttendance,
+                      location:$location,
+                      wish:$wish
+                    }
+                  ) {
+                    affectedCount
+                    records{
+                      id
+                      nodeId
+                      relation
+                      location
+                      isAttendace
+                      wish
+                    }
+                  }
+                }`,
             variables: {
-              name: 'dam'
+              id: arrId[1],
+              location: $('#location').val(),
+              isAttendance: true,
+              phone: $('#phone').val(),
+              wish: ''
             }
           })
         }
-      ).then((response) => response.json())
-      console.log('data', data)
-    } catch (error) {}
+      )
+      const result = await data.json()
+      if (result.data.updatecustomersCollection.affectedCount !== 0) {
+        Toastify({
+          text: 'Thông tin được gửi thành công',
+          duration: 1000,
+          destination: 'https://github.com/apvarun/toastify-js',
+          newWindow: true,
+          gravity: 'top', // `top` or `bottom`
+          position: 'right', // `left`, `center` or `right`
+          stopOnFocus: true, // Prevents dismissing of toast on hover
+          style: {
+            background: 'linear-gradient(to right, #00b09b, #96c93d)'
+          },
+          onClick: function () {} // Callback after click
+        }).showToast()
+      }
+    } catch (error) {
+      console.log('error', error)
+    }
   })
 </script>

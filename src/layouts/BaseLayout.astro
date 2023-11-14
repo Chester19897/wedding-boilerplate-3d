@@ -27,6 +27,11 @@ const { title, description } = Astro.props
       rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Kurale"
     />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
   </head>
   <body>
     <div class="backgrounds">
@@ -34,6 +39,9 @@ const { title, description } = Astro.props
       <slot />
       <Footer />
     </div>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script is:inline src="https://code.jquery.com/jquery-3.7.0.min.js"
     ></script>
     <script is:inline src="/src/fullpage/fullpage.js"></script>

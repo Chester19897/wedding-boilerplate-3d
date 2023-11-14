@@ -16,6 +16,7 @@ const NavMenu = () => {
                     width="11"
                     height="11"
                     className="ml-0.5"
+                    fill="#d54b4b"
                   >
                     <defs></defs>
                     <g id="a"></g>

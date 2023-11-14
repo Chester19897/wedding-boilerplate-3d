@@ -7,7 +7,6 @@ import MainHead from '../components/MainHead.astro'
 import Nav from '../components/Nav'
 import Footer from '../components/Footer.astro'
 
-
 interface Props {
   title?: string | undefined
   description?: string | undefined
@@ -17,7 +16,6 @@ const { title, description } = Astro.props
 ---
 
 <html lang="en" class="scroll-smooth">
-
   <head>
     <MainHead title={title} description={description} />
     <link rel="stylesheet" type="text/css" href="/src/fullpage/fullpage.css" />
@@ -34,8 +32,10 @@ const { title, description } = Astro.props
     <div class="backgrounds">
       <Nav />
       <slot />
-       <Footer />
+      <Footer />
     </div>
+    <script is:inline src="https://code.jquery.com/jquery-3.7.0.min.js"
+    ></script>
     <script is:inline src="/src/fullpage/fullpage.js"></script>
     <script>
       var myFullpage = new fullpage('#fullpage', {
@@ -48,7 +48,6 @@ const { title, description } = Astro.props
         //   '#7BAABE'
         // ]
       })
-
     </script>
     <script>
       // Add “loaded” class once the document has completely loaded.

@@ -7,6 +7,7 @@ import MainHead from '../components/MainHead.astro'
 import Nav from '../components/Nav'
 import Footer from '../components/Footer.astro'
 
+
 interface Props {
   title?: string | undefined
   description?: string | undefined
@@ -16,6 +17,7 @@ const { title, description } = Astro.props
 ---
 
 <html lang="en" class="scroll-smooth">
+
   <head>
     <MainHead title={title} description={description} />
     <link rel="stylesheet" type="text/css" href="/src/fullpage/fullpage.css" />
@@ -37,7 +39,7 @@ const { title, description } = Astro.props
     <div class="backgrounds">
       <Nav />
       <slot />
-      <Footer />
+       <!--<Footer />-->
     </div>
     <script
       type="text/javascript"
@@ -74,6 +76,7 @@ const { title, description } = Astro.props
         font-family: 'Kurale', sans-serif !important;
         font-size: 25px;
         font-weight: 300;
+        background: transparent;
       }
     </style>
   </body>

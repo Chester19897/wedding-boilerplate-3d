@@ -275,3 +275,71 @@ h5 {
     overflow: hidden;
 }
 
+.dropdown {
+    position: relative;
+    display: inline-block
+}
+
+.dropdown>:not(summary):focus {
+    outline: 2px solid transparent;
+    outline-offset: 2px
+}
+
+.dropdown .dropdown-content {
+    position: absolute
+}
+
+.dropdown:is(:not(details)) .dropdown-content {
+    visibility: hidden;
+    opacity: 0;
+    transform-origin: top;
+    --tw-scale-x: .95;
+    --tw-scale-y: .95;
+    transform: translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+    transition-property: color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,-webkit-backdrop-filter;
+    transition-property: color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;
+    transition-property: color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter,-webkit-backdrop-filter;
+    transition-timing-function: cubic-bezier(.4,0,.2,1);
+    transition-timing-function: cubic-bezier(0,0,.2,1);
+    transition-duration: .2s
+}
+
+.dropdown-end .dropdown-content {
+    right: 0
+}
+
+.dropdown-left .dropdown-content {
+    bottom: auto;
+    right: 100%;
+    top: 0;
+    transform-origin: right
+}
+
+.dropdown-right .dropdown-content {
+    bottom: auto;
+    left: 100%;
+    top: 0;
+    transform-origin: left
+}
+
+.dropdown-bottom .dropdown-content {
+    bottom: auto;
+    top: 100%;
+    transform-origin: top
+}
+
+.dropdown-top .dropdown-content {
+    bottom: 100%;
+    top: auto;
+    transform-origin: bottom
+}
+
+.dropdown-end.dropdown-left .dropdown-content,.dropdown-end.dropdown-right .dropdown-content {
+    bottom: 0;
+    top: auto
+}
+
+.dropdown.dropdown-open .dropdown-content,.dropdown:focus-within .dropdown-content,.dropdown:not(.dropdown-hover):focus .dropdown-content {
+    visibility: visible;
+    opacity: 1
+}

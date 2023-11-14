@@ -15,7 +15,7 @@ import PortfolioPreview from '../components/PortfolioPreview.astro'
 // Page section components
 import Skills from '../components/Skills.astro'
 import CountdownTimer from '../components/timer/CountdownTimer'
-import Form from '../components/form/Form'
+import Form from '../components/form/Form.astro'
 import Tabs from '../components/Tabs.astro'
 import Gallery from '../components/Gallery.astro'
 import SlideWishes from '../components/wishes/SlideWishes'
@@ -176,13 +176,15 @@ const dateTimeAfterThreeDays = FUTURE_DAY
       </div>
       <div class="section py-10 md:py-20 scroll-m-20" id="section3">
          <section class="wrapper gallery">
+      <div class="section" id="section3">
+        <!-- <section class="wrapper gallery">
           <Gallery />
-        </section>
+        </section> -->
       </div>
       <div class="section py-10 md:py-20 scroll-m-20" id="section4">
         <section class="wrapper section-form">
           <div class="form-attending">
-            <Form client:visible />
+            <Form />
           </div>
         </section>
       </div>
@@ -191,18 +193,35 @@ const dateTimeAfterThreeDays = FUTURE_DAY
           <SlideWishes client:only="react" />
         </section>
       </div>
-      <div class="grid place-content-center bg-cover bg-center md:min-h-[500px] w-full relative" id="section6">
-          <div class="h-full bg-white/10 z-2"></div>
-          <Image src="/assets/footer-bg.jpg" alt="footer" width="1418" height="500" class="absolute w-full h-full left-0 right-0 top-0 bottom-0 color-[transparent] object-cover object-center pointer-events-none z-10"/>
-          <div class="container m-auto flex flex-col relative z-50 items-center px-5 py-20">
-            <h3 class="text-5xl md:text-[100px] text-white font-black text-center drop-shadow">
-                Cảm ơn!
-            </h3>
-            <p class="text-3xl md:text-[50px] text-black font-bold text-center drop-shadow">Hẹn gặp lại bạn ở lễ cuới!</p>
-          </div>
+      <div
+        class="grid place-content-center bg-cover bg-center md:min-h-[500px] w-full relative"
+        id="section6"
+      >
+        <div class="h-full bg-white/10 z-2"></div>
+        <Image
+          src="/assets/footer-bg.jpg"
+          alt="footer"
+          width="1418"
+          height="500"
+          class="absolute w-full h-full left-0 right-0 top-0 bottom-0 color-[transparent] object-cover object-center pointer-events-none z-10"
+        />
+        <div
+          class="container m-auto flex flex-col relative z-50 items-center px-5 py-20"
+        >
+          <h3
+            class="text-5xl md:text-[100px] text-white font-black text-center drop-shadow"
+          >
+            Cảm ơn!
+          </h3>
+          <p
+            class="text-3xl md:text-[50px] text-black font-bold text-center drop-shadow"
+          >
+            Hẹn gặp lại bạn ở lễ cuới!
+          </p>
+        </div>
       </div>
     </div>
-      </div>
+  </div>
 </BaseLayout>
 
 <script>

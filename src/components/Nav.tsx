@@ -8,7 +8,7 @@ const NavMenu = () => {
           <section className="grid grid-cols-12 w-full">
             <section className="col-span-3 flex items-center">
               <h1>
-                <a className="logo flex items-center justify-center gap-1 text-3xl text-[#3f3f46]">
+                <a className="logo flex items-center justify-center gap-1 text-5xl text-[#837a7a]">
                   Việt
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
